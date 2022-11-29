@@ -148,8 +148,10 @@ let startButton = document.getElementById("start-button");
 let startGame = document.getElementById("start-game");
 let gamePlay = document.getElementById("game-play");
 let endGame = document.getElementById("end-game");
+let restartButton = document.getElementById("restart-button");
 
 startButton.addEventListener("click", startGameMethod);
+restartButton.addEventListener("click", startGameMethod);
 
 function showQuestion(question) {
     document.getElementById("question").innerText = question.prompt;
@@ -172,17 +174,24 @@ function validateAnswer(event) {
 
     if (currentQuestionIndex === questions.length - 1) {
         endGameMethod();
+    } else {
+        currentQuestionIndex = currentQuestionIndex + 1;
+        currentQuestion = questions[currentQuestionIndex];
+        showQuestion(currentQuestion);
     }
-    currentQuestionIndex = currentQuestionIndex + 1;
-    currentQuestion = questions[currentQuestionIndex];
-    showQuestion(currentQuestion);
+
 }
 
 function startGameMethod() {
+    currentQuestionIndex = 0;
+    score = 0;
+    currentQuestion = questions[currentQuestionIndex];
+    showQuestion(currentQuestion);
     gamePlay.style.display = "block";
     startGame.style.display = "none";
     endGame.style.display = "none";
 }
+
 function endGameMethod() {
     gamePlay.style.display = "none";
     startGame.style.display = "none";
