@@ -59,7 +59,7 @@ let questions = [{
         a: "Iron Maiden",
         b: "Motörhead",
         c: "Black Sabbath",
-        answer: "a"
+        answer: "c"
     },
     {
         prompt: "10. Which song has the lyric “This hit, that ice cold, Michelle Pfeiffer, that white gold”?",
@@ -141,6 +141,7 @@ let questions = [{
 
 ]
 let score = 0;
+let wrongAnswers = 0;
 let currentQuestionIndex = 0;
 let currentQuestion = questions[currentQuestionIndex];
 let optionButtons = document.getElementsByClassName("option");
@@ -187,6 +188,7 @@ function startGameMethod() {
     score = 0;
     currentQuestion = questions[currentQuestionIndex];
     showQuestion(currentQuestion);
+    document.getElementById("score").innerText = score;
     gamePlay.style.display = "block";
     startGame.style.display = "none";
     endGame.style.display = "none";
@@ -196,6 +198,16 @@ function endGameMethod() {
     gamePlay.style.display = "none";
     startGame.style.display = "none";
     endGame.style.display = "block";
+    showSummary();
+}
+
+function showSummary() {
+    if (score > 13) {
+        document.getElementById("game-summary").innerText = "You Have Won!!!";
+    }
+    else {
+        document.getElementById("game-summary").innerText = "Loser!!!";
+    }
 }
 
 for (const button of optionButtons) {

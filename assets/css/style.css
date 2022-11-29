@@ -60,6 +60,11 @@ html {
   display: none;
 }
 
+#game-summary {
+  font-size: 70px;
+  text-transform: uppercase;
+}
+
 .aside {
   background-color: #b4b2ae;
   padding: 15px;
