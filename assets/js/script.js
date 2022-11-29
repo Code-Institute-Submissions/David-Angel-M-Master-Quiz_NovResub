@@ -1,5 +1,4 @@
-let questions = [
-    {
+let questions = [{
         prompt: "1. Who was the lead singer of Nirvana?",
         a: "Dave Grohl",
         b: "Kurt Cobain",
@@ -139,7 +138,7 @@ let questions = [
         c: "1978",
         answer: "a"
     },
- 
+
 ]
 let score = 0;
 let currentQuestionIndex = 0;
@@ -153,15 +152,15 @@ function showQuestion(question) {
     document.getElementById('option3').innerText = question.c;
 }
 
-function validateAnswer(event){
+function validateAnswer(event) {
     const userAnswer = event.target.getAttribute('data-value');
     console.log('user answer', userAnswer);
 
-    if (userAnswer === currentQuestion.answer){
+    if (userAnswer === currentQuestion.answer) {
         console.log("Correct");
         score = score + 1;
         document.getElementById('score').innerText = score;
-    }else{
+    } else {
         console.log("Incorrect");
     }
     currentQuestionIndex = currentQuestionIndex + 1;
@@ -170,8 +169,10 @@ function validateAnswer(event){
 }
 
 
-for (const button of optionButtons){
+for (const button of optionButtons) {
     button.addEventListener('click', validateAnswer)
 }
 
 showQuestion(currentQuestion);
+
+
