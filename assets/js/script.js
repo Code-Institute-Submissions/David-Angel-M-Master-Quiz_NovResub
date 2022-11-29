@@ -171,6 +171,8 @@ function validateAnswer(event) {
         document.getElementById("score").innerText = score;
     } else {
         console.log("Incorrect");
+        wrongAnswers = wrongAnswers + 1;
+        document.getElementById("wrong-answers").innerText = wrongAnswers;
     }
 
     if (currentQuestionIndex === questions.length - 1) {
@@ -186,9 +188,11 @@ function validateAnswer(event) {
 function startGameMethod() {
     currentQuestionIndex = 0;
     score = 0;
+    wrongAnswers = 0;
     currentQuestion = questions[currentQuestionIndex];
     showQuestion(currentQuestion);
     document.getElementById("score").innerText = score;
+    document.getElementById("wrong-answers").innerText = wrongAnswers;
     gamePlay.style.display = "block";
     startGame.style.display = "none";
     endGame.style.display = "none";
