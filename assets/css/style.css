@@ -25,6 +25,10 @@ html {
   text-align: center;
 }
 
+.start-game-layout {
+  text-align: center;
+}
+
 .menu ul {
   list-style-type: none;
   margin: 0;
