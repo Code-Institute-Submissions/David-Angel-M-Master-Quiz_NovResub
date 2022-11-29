@@ -140,7 +140,7 @@ let questions = [{
         answer: "a"
     },
 
-]
+];
 
 // Variables
 let score = 0;
@@ -226,7 +226,7 @@ function showSummary() {
 
 // Add event listener to option buttons
 for (const button of optionButtons) {
-    button.addEventListener("click", validateAnswer)
+    button.addEventListener("click", validateAnswer);
 }
 
 showQuestion(currentQuestion);
