@@ -1,3 +1,4 @@
+// List of questions 
 let questions = [{
         prompt: "1. Who was the lead singer of Nirvana?",
         a: "Dave Grohl",
@@ -140,6 +141,8 @@ let questions = [{
     },
 
 ]
+
+// Variables
 let score = 0;
 let wrongAnswers = 0;
 let currentQuestionIndex = 0;
@@ -154,6 +157,7 @@ let restartButton = document.getElementById("restart-button");
 startButton.addEventListener("click", startGameMethod);
 restartButton.addEventListener("click", startGameMethod);
 
+// Display current question
 function showQuestion(question) {
     document.getElementById("question").innerText = question.prompt;
     document.getElementById("option1").innerText = question.a;
@@ -161,6 +165,7 @@ function showQuestion(question) {
     document.getElementById("option3").innerText = question.c;
 }
 
+// Verified user input against list of questions
 function validateAnswer(event) {
     const userAnswer = event.target.getAttribute("data-value");
     console.log("user answer", userAnswer);
@@ -175,9 +180,11 @@ function validateAnswer(event) {
         document.getElementById("wrong-answers").innerText = wrongAnswers;
     }
 
+    // Finish game
     if (currentQuestionIndex === questions.length - 1) {
         endGameMethod();
     } else {
+        // Show next question
         currentQuestionIndex = currentQuestionIndex + 1;
         currentQuestion = questions[currentQuestionIndex];
         showQuestion(currentQuestion);
@@ -185,6 +192,7 @@ function validateAnswer(event) {
 
 }
 
+// Initialize game variables
 function startGameMethod() {
     currentQuestionIndex = 0;
     score = 0;
@@ -198,6 +206,7 @@ function startGameMethod() {
     endGame.style.display = "none";
 }
 
+// Show end game panel
 function endGameMethod() {
     gamePlay.style.display = "none";
     startGame.style.display = "none";
@@ -205,6 +214,7 @@ function endGameMethod() {
     showSummary();
 }
 
+// Show results of game
 function showSummary() {
     if (score > 13) {
         document.getElementById("game-summary").innerText = "You Have Won!!!";
@@ -214,6 +224,7 @@ function showSummary() {
     }
 }
 
+// Add event listener to option buttons
 for (const button of optionButtons) {
     button.addEventListener("click", validateAnswer)
 }
