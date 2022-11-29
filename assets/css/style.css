@@ -48,6 +48,10 @@ html {
   min-height: 250px;
 }
 
+#game-play {
+  display: none;
+}
+
 .aside {
   background-color: #b4b2ae;
   padding: 15px;

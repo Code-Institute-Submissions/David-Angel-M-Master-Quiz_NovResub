@@ -5,3 +5,9 @@
     min-width: 200px;
     min-height: 80px;
   }
+
+  .start {
+    font-size: 70px;
+    text-transform: uppercase;
+    padding: 10px;
+  }

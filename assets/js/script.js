@@ -143,23 +143,28 @@ let questions = [{
 let score = 0;
 let currentQuestionIndex = 0;
 let currentQuestion = questions[currentQuestionIndex];
-let optionButtons = document.getElementsByClassName('option');
+let optionButtons = document.getElementsByClassName("option");
+let startButton = document.getElementById("start-button");
+let startGame = document.getElementById("start-game");
+let gamePlay = document.getElementById("game-play");
+
+startButton.addEventListener("click", startGameMethod);
 
 function showQuestion(question) {
-    document.getElementById('question').innerText = question.prompt;
-    document.getElementById('option1').innerText = question.a;
-    document.getElementById('option2').innerText = question.b;
-    document.getElementById('option3').innerText = question.c;
+    document.getElementById("question").innerText = question.prompt;
+    document.getElementById("option1").innerText = question.a;
+    document.getElementById("option2").innerText = question.b;
+    document.getElementById("option3").innerText = question.c;
 }
 
 function validateAnswer(event) {
-    const userAnswer = event.target.getAttribute('data-value');
-    console.log('user answer', userAnswer);
+    const userAnswer = event.target.getAttribute("data-value");
+    console.log("user answer", userAnswer);
 
     if (userAnswer === currentQuestion.answer) {
         console.log("Correct");
         score = score + 1;
-        document.getElementById('score').innerText = score;
+        document.getElementById("score").innerText = score;
     } else {
         console.log("Incorrect");
     }
@@ -168,11 +173,14 @@ function validateAnswer(event) {
     showQuestion(currentQuestion);
 }
 
+function startGameMethod() {
+    gamePlay.style.display = "block";
+    startGame.style.display = "none";
+}
+
 
 for (const button of optionButtons) {
-    button.addEventListener('click', validateAnswer)
+    button.addEventListener("click", validateAnswer)
 }
 
 showQuestion(currentQuestion);
-
-
