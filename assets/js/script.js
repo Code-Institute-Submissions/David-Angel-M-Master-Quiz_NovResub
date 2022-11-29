@@ -147,6 +147,7 @@ let optionButtons = document.getElementsByClassName("option");
 let startButton = document.getElementById("start-button");
 let startGame = document.getElementById("start-game");
 let gamePlay = document.getElementById("game-play");
+let endGame = document.getElementById("end-game");
 
 startButton.addEventListener("click", startGameMethod);
 
@@ -168,6 +169,10 @@ function validateAnswer(event) {
     } else {
         console.log("Incorrect");
     }
+
+    if (currentQuestionIndex === questions.length - 1) {
+        endGameMethod();
+    }
     currentQuestionIndex = currentQuestionIndex + 1;
     currentQuestion = questions[currentQuestionIndex];
     showQuestion(currentQuestion);
@@ -176,8 +181,13 @@ function validateAnswer(event) {
 function startGameMethod() {
     gamePlay.style.display = "block";
     startGame.style.display = "none";
+    endGame.style.display = "none";
 }
-
+function endGameMethod() {
+    gamePlay.style.display = "none";
+    startGame.style.display = "none";
+    endGame.style.display = "block";
+}
 
 for (const button of optionButtons) {
     button.addEventListener("click", validateAnswer)

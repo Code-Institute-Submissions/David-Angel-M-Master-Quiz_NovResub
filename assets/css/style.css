@@ -56,6 +56,10 @@ html {
   display: none;
 }
 
+#end-game {
+  display: none;
+}
+
 .aside {
   background-color: #b4b2ae;
   padding: 15px;
